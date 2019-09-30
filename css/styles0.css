@@ -1,7 +1,7 @@
 body {
     text-align: center;
     font-family: Arial, Helvetica, san-serif;
-    font-size: 14px;
+    font-size: 18px;
     background-color: black;
     height: 10%;
 }
@@ -9,17 +9,9 @@ body {
 h2 {
     color: white;
     font-family: Arial, Helvetica, san-serif;
-    font-size: 14px;
+    font-size: 18px;
 }
 
-/* Style the navigation menu */
-.navbar {
-    width: 100%;
-    background-color: #555;
-    overflow: auto;
-}
-
-/* Navigation links */
 /* Style the navigation menu */
 .navbar {
     width: 100%;
@@ -43,7 +35,7 @@ h2 {
 
 /* Add a background color on mouse-over */
 .navbar a:hover {
-    background-color: darkred;
+    background-color: darkblue;
 }
 
 /* Style the current/active link */
@@ -52,8 +44,8 @@ h2 {
 }
 
 #bannerimg {
-    width: 500px;
-    height: auto;
+    width: 1200px;
+    height: 400px;
 }
 
 iframe {
@@ -86,7 +78,7 @@ iframe {
     text-align: left;
     border-width: 10px;
     border-radius: 30px;
-    border-color: darkred;
+    border-color: blue;
     border-style: solid;
     background-color: black;
 }
