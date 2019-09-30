@@ -1,0 +1,92 @@
+body {
+    text-align: center;
+    font-family: Arial, Helvetica, san-serif;
+    font-size: 14px;
+    background-color: black;
+    height: 10%;
+}
+
+h2 {
+    color: white;
+    font-family: Arial, Helvetica, san-serif;
+    font-size: 14px;
+}
+
+/* Style the navigation menu */
+.navbar {
+    width: 100%;
+    background-color: #555;
+    overflow: auto;
+}
+
+/* Navigation links */
+/* Style the navigation menu */
+.navbar {
+    width: 100%;
+    background-color: black;
+    overflow: auto;
+}
+
+/* Navigation links */
+.navbar a {
+    float: left;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    width: 25%;
+    /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+    text-align: center;
+    /* If you want the text to be centered */
+}
+
+/* Add a background color on mouse-over */
+.navbar a:hover {
+    background-color: darkred;
+}
+
+/* Style the current/active link */
+.navbar a:active {
+    background-color: black;
+}
+
+#bannerimg {
+    width: 500px;
+    height: auto;
+}
+
+iframe {
+    height: 660px;
+    width: 650px;
+}
+
+.pic {
+    position: absolute;
+    width: 20%;
+    margin: 3rem;
+    top: 200px;
+    right: 50px;
+    padding: 10px;
+    border-width: 10px;
+    border-radius: 30px;
+    border-color: red;
+    border-style: solid;
+
+}
+
+.box {
+    position: relative;
+    width: 50%;
+    margin: 1rem;
+    padding: 2rem;
+    color: white;
+    font-size: .9rem;
+    font-weight: bold;
+    text-align: left;
+    border-width: 10px;
+    border-radius: 30px;
+    border-color: darkred;
+    border-style: solid;
+    background-color: black;
+}
