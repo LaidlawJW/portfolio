@@ -1,3 +1,13 @@
+usa {
+  display: block;
+  margin-left: min;
+}
+
+ocean {
+  display: block;
+  margin-left: min;
+}
+
 body {
     text-align: center;
     font-family: Arial, Helvetica, san-serif;
