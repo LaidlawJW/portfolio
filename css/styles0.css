@@ -48,6 +48,10 @@ h2 {
     height: 400px;
 }
 
+div {
+    border-color: black;
+}
+
 iframe {
     height: 660px;
     width: 650px;
@@ -78,7 +82,7 @@ iframe {
     text-align: left;
     border-width: 10px;
     border-radius: 30px;
-    border-color: blue;
+    border-color: mediumblue;
     border-style: solid;
     background-color: black;
 }
