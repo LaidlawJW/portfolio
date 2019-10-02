@@ -45,7 +45,7 @@ h2 {
 
 /* Add a background color on mouse-over */
 .navbar a:hover {
-    background-color: darkblue;
+    background-color: mediumblue;
 }
 
 /* Style the current/active link */
@@ -55,7 +55,7 @@ h2 {
 
 #bannerimg {
     width: 1200px;
-    height: 400px;
+    height: 250px;
 }
 
 div {
@@ -92,7 +92,7 @@ iframe {
     text-align: left;
     border-width: 10px;
     border-radius: 30px;
-    border-color: mediumblue;
+    border-color: royalblue;
     border-style: solid;
     background-color: black;
 }
