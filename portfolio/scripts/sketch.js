@@ -27,7 +27,6 @@ function setup() {
 }
 
 function draw() {
-    background(0);
     //lightning color 
     rand1 = (Math.random() * 255) + 1;
     rand2 = (Math.random() * 255) + 1;
@@ -43,12 +42,13 @@ function draw() {
             line(startX, startY, endX, endY);
             startX = endX;
             startY = endY;
+
             console.log("startX " + startX);
             console.log("startY " + startY);
         }
 
         var time = millis() - startTime;
-        if (time > 10) {
+        if (time > 15) {
             startTime = millis();
             reset();
         }
