@@ -42,9 +42,6 @@ function draw() {
             line(startX, startY, endX, endY);
             startX = endX;
             startY = endY;
-
-            console.log("startX " + startX);
-            console.log("startY " + startY);
         }
 
         var time = millis() - startTime;
