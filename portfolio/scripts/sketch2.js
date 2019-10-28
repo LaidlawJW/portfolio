@@ -1,45 +1,56 @@
 'use strict'
-
+var total;
+var rand;
 function setup() {
     noLoop();
-    CreateCanvas(350, 500);
+    createCanvas(350, 500);
     background(40, 148, 3);
 }
 
 function draw() //Increment by 60, five dice per row, four rows
 {
+    total=0;
+    createCanvas(40, 148, 3);
     Die die1 = new Die(30, 35);
     die1.roll();
+    die1.total();
     die1.show();
 
     Die die2 = new Die(90, 35);
     die2.roll();
+    die2.total();
     die2.show();
 
     Die die3 = new Die(150, 35);
     die3.roll();
+    die3.total();
     die3.show();
 
     Die die4 = new Die(210, 35);
     die4.roll();
+    die4.total();
     die4.show();
 
     Die die5 = new Die(270, 35);
     die5.roll();
+    die5.total();
     die5.show();
 
     //Row 2
 
     Die die6 = new Die(30, 95);
     die6.roll();
+    die6.total();
     die6.show();
 
     Die die7 = new Die(90, 95);
     die7.roll();
+    die7.total();
     die7.show();
 
     Die die8 = new Die(150, 95);
     die8.roll();
+    die8.total();
     die8.show();
 
     Die die9 = new Die(210, 95);
@@ -104,29 +115,12 @@ class Die //models one single dice cube
 {
     //variable declarations here
     var x;
-    var y;
-    var total;
-    var ones;
-    var twos;
-    var threes;
-    var fours;
-    var fives;
-    var sixes;
-    var rand;
-    var first;
+    var y; 
 
     constructor(x, y) { //Constructor
         //variable initializations here
         this.x = x;
         this.y = y;
-        this.total = total;
-        this.ones = ones;
-        this.twos = twos;
-        this.threes = threes;
-        this.fours = fours;
-        this.fives = fives;
-        this.sixes = sixes;
-        this.rand = rand;
     }
 
     function roll() {
@@ -139,7 +133,7 @@ class Die //models one single dice cube
             fill(255, 255, 255);
             rect(this.x, this.y, 50, 50, 7);
             fill(0, 0, 0);
-            circle(this.x + 25, this.y + 25, 10); //Middle dot
+            circle(this.x + 25, this.y + 25, 10); //Middle dot;
         }
 
         if (this.rand == 2) { //Two
