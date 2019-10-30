@@ -1,23 +1,25 @@
-'use strict'
-let die;
+'use strict';
 var total;
+var dice = new Array();
 
 function setup() {
     createCanvas(350, 500);
-    background(40, 148, 3);
     noLoop();
+    die = new Die();
+    for (var i = 0; i < 4; i++) {
+        for (var j = 0; j < 4; j++) {
+            dice[i * 4 + j] = new Die(30 + 35 * j, 30 + 35 * i);
+        }
+    }
 }
 
 function draw() {
     total = 0;
-    createCanvas(40, 148, 3);
-    for (var i = 0; i < 270; i += 60) {
-        for (var j = 0; j < 215; j += 60) {
-            die = new Die(i, j);
-            die.roll();
-            die.total();
-            die.show();
-        }
+    background(40, 148, 3);
+    for (var x = 0; x < 20; x++) {
+        dice[x].roll();
+        dice[x].total();
+        dice[x].show();
     }
 }
 
@@ -27,7 +29,6 @@ function mousePressed() {
 
 class Die //models one single dice cube
 {
-    //variable declarations here
     constructor(x, y) { //Constructor
         //variable initializations here
         this.x = x;
@@ -35,7 +36,7 @@ class Die //models one single dice cube
     }
 
     roll() {
-        var rand = (Math.random() * 6) + 1;
+        var rand = Math.floor(Math.random() * 6) + 1;
     }
 
     total() {
@@ -43,7 +44,6 @@ class Die //models one single dice cube
     }
 
     show() {
-
         if (this.rand == 1) { //One 
             fill(255, 255, 255);
             rect(this.x, this.y, 50, 50, 7);
