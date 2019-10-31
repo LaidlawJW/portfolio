@@ -1,14 +1,17 @@
 'use strict';
-var total;
+var total = 0;
+var die;
 var dice = new Array();
+var rand;
 
 function setup() {
-    createCanvas(350, 500);
+    createCanvas(310, 310);
+    background(40, 148, 3);
     noLoop();
-    die = new Die();
+    dice = new Die();
     for (var i = 0; i < 4; i++) {
         for (var j = 0; j < 4; j++) {
-            dice[i * 4 + j] = new Die(30 + 35 * j, 30 + 35 * i);
+            dice[i * 4 + j] = new Die(30 + 65 * j, 30 + 65 * i);
         }
     }
 }
@@ -36,7 +39,7 @@ class Die //models one single dice cube
     }
 
     roll() {
-        var rand = Math.floor(Math.random() * 6) + 1;
+        this.rand = Math.floor(Math.random() * 6) + 1;
     }
 
     total() {
@@ -102,9 +105,5 @@ class Die //models one single dice cube
         }
 
         //End of dice sides
-
-        textSize(20);
-        text("Total: " + total, 10, 30);
-        fill(0, 0, 0);
     }
 }
