@@ -18,7 +18,6 @@ var nextStrike = 0;
 var storm = true;
 var lightFade = true;
 
-
 function setup() {
     smooth();
     createCanvas(900, 500);
@@ -51,7 +50,7 @@ function draw() {
         }
     }
 
-    if (lightFade) {
+    if (lightFade) {// Makes each lightning bolt fade out
         noStroke();
         fill(0, 0, 10, 20);
         rect(0, 0, width, height);

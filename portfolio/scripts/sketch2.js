@@ -8,17 +8,20 @@ function setup() {
     createCanvas(310, 310);
     background(40, 148, 3);
     noLoop();
+    textSize(20);
+    text("Total: ", 9, 20);
+    fill(0, 0, 0);
     dice = new Die();
     for (var i = 0; i < 4; i++) {
         for (var j = 0; j < 4; j++) {
             dice[i * 4 + j] = new Die(30 + 65 * j, 30 + 65 * i);
         }
     }
+
 }
 
 function draw() {
     total = 0;
-    background(40, 148, 3);
     for (var x = 0; x < 20; x++) {
         dice[x].roll();
         dice[x].total();
@@ -103,7 +106,12 @@ class Die //models one single dice cube
             circle(this.x + 10, this.y + 40, 10); //Bottom left diagonal dot
             circle(this.x + 40, this.y + 40, 10); //Bottom right diagonal dot
         }
-
         //End of dice sides
+        noStroke();
+        fill(40, 148, 3)
+        rect(59, 3, 25, 22);
+        textSize(20);
+        fill(0, 0, 0);
+        text(total, 60, 20);
     }
 }
