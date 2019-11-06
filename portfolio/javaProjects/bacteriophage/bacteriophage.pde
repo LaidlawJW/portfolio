@@ -1,7 +1,10 @@
 //declare universal variables here
+PImage bacteria, phage;
+Bacteria bact;
+ArrayList<Phage> phages;
+int speed;
+boolean infected, active=false;
 
-Bacteria bact[];
-Phage ph[];
 
 void setup() {
   size(600, 600);
@@ -10,66 +13,79 @@ void setup() {
   fill(230);
   circle(width/2, height/2, width);// Interior of dish
 
-  for (int i=0; i<4; i++) {// Bacteria
-    for (int j=0; j<4; j++) {
-      bact[i*4*j]= new Bacteria(10+10*j, 10+10*i);
-    }
-  }
+  bacteria=loadImage("bacteria.png");
+  bact=new Bacteria(width/2, height/2);
+  
+  phage=loadImage("phage.png");
+  phages = new ArrayList<Phage>();
 
-  for (int i=0; i<4; i++) {// Phage
-    for (int j=0; j<4; j++) {
-      ph[i*4*j]= new Phage(10+10*j, 10+10*i);
-    }
+  int randomW = (int)random(2);
+  int randomH = (int)random(2);
+  if (randomW == 0) {
+    if (randomH == 0)
+      phages.add(new Phage(random(-width, 0), random(-height, 0), .008 + (.003 * speed)));
+    else
+      phages.add(new Phage(random(-width, 0), random(height, 2 * height), .008 + (.003 * speed)));
+  } else {
+    if (randomH == 0)
+      phages.add(new Phage(random(width, 2 * width), random(-height, 0), .008 + (.003 * speed)));
+    else
+      phages.add(new Phage(random(-width, 2 * width), random(height, 2 * height), .008 + (.003 * speed)));
   }
+  speed++;
 }
 
 void draw() {
   // Calls the methods for bacteria and phages
-  for (int x=0; x<10; x++) {// Bacteria
-    bact[x].move();
-    bact[x].show();
-  }
-
-  for (int x=0; x<10; x++) {// Phage
-    ph[x].target();
-    ph[x].show();
-  }
+    for(Phage ph : phages) {
+      ph.show();
+      ph.target();
+    }
 }
 
 class Bacteria {
   private float x;
   private float y;
-  private float rgb;
-  private boolean infected;
+  private float accel=0.4;
 
   Bacteria(float x, float y) {
     this.x=x;
     this.y=y;
-    this.rgb=rgb;
-    this.infected=infected;
   }
 
   void move() {
+    float tx = mouseX - x;
+    x += tx * accel;
+
+    float ty = mouseY - y;
+    y += ty * accel;
   }
 
   void show() {
+    image(bacteria, x, y, 60, 60);
   }
 }
 
 class Phage {
   private float x;
   private float y;
-  private int rgb;
+  private float accel;
 
-  Phage(float x, float y) {
+  Phage(float x, float y, float speed) {
     this.x=x;
     this.y=y;
-    this.rgb=rgb;
+    accel=speed;
   }
 
   void target() { //Goes to the bacteria and changes their color to indicate infection
+    float tx = bact.x-35 - x;
+    x += tx * accel;
+
+    float ty = bact.y-35 - y;
+    y += ty * accel;
   }
 
   void show() {
+    image(phage, x, y, 60, 60);
   }
 }
