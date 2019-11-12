@@ -50,7 +50,7 @@ function draw() {
         }
     }
 
-    if (lightFade) {// Makes each lightning bolt fade out
+    if (lightFade) { // Makes each lightning bolt fade out
         noStroke();
         fill(0, 0, 10, 20);
         rect(0, 0, width, height);
