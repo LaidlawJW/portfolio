@@ -2,7 +2,7 @@
 PImage bacteria, phage, background;
 Bacteria bact;
 ArrayList<Phage> phages;
-ArrayList<Phage> newPhages;
+
 int speed;
 boolean infected=false;
 boolean active=true;
@@ -18,9 +18,9 @@ void setup() {
   phage=loadImage("phage.png");
   phages = new ArrayList<Phage>();
 
-  newPhages = new ArrayList<Phage>();
 
   phages.add(new Phage((random(-width, 2 * width)), random(height, 2 * height), .015 + (3 * speed)));
+  
   speed++;
 }
 
@@ -30,31 +30,22 @@ void draw() {
   noStroke();
 
   bact.show();
-  bact.move();
 
   for (Phage ph : phages) {
     ph.show();
     ph.target();
     ph.check();
   }
-  
 }
 
-void reset() {
-  redraw();
-}
 
 class Bacteria {
-  private float x;
-  private float y;
+  private int x;
+  private int y;
 
-  Bacteria(float x, float y) {
+  Bacteria(int x, int y) {
     this.x=x;
     this.y=y;
-  }
-
-  void move() {
-    print("Bact pos: "+x+", "+y+" ");
   }
 
   void show() {
@@ -92,9 +83,11 @@ class Phage {
   }
 
   void multiply() {
-    for (int i=0; i<10; i++) {
-      newPhages.add(new Phage((random(bact.x)), random(bact.y), .015 + (3 * speed)));
-    }
+      int random=40;
+      image(phage, bact.x-random, bact.y+random, 40, 40);
+      image(phage, bact.x+random, bact.y-random, 40, 40);
+      image(phage, bact.x-random, bact.y-random, 40, 40);
+      image(phage, bact.x+random, bact.y+random, 40, 40);
   }
 
   void check() {

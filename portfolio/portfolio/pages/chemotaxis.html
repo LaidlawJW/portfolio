@@ -2,13 +2,13 @@
     <html>
 
     <head>
-        <title>Lightning</title>
+        <title>Chemotaxis</title>
         <link rel="stylesheet" type="text/css" href="../css/styles0.css">
         <link rel="stylesheet" type="text/css" href="../css/reset.css">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="p5.js"></script>
-        <script src="sketch.js"></script>
+        <script src="../p5Dev/libraries/p5.js"></script>
+        <script src="../scripts/sketch3.js"></script>
 
     </head>
 
@@ -23,7 +23,7 @@
                     <a href="../pages/deep.html">Deep Thoughts</a>
                     <a href="../pages/aboutme.html">About Me</a>
                 </div>
-                <div class="box"> The main problems that I encountered with the lightning program was making the lightning flash at slightly randomed points in time. I acheived this by using float values and millis() to determine the lightning flash interval. Other float values were used to determine when the last flash occured and when the next flash should be. The lightning flashes would fade by calling noStroke() and using fill() parameters to increase the opacity and brightness of a called screen-sized rect(). Increasing the opacity and brightness gradually blackened out the lightning colors, creating the needed fade out effect. </div>
+                <div class="box"> The main problem that I encountered with the chemotaxis program was getting the bacteria image to turn red when the bacteriophage was near it to indicate infection (A bacteriophage is a virus that only infects bacteria). I fixed this by increasing the area in which the bacteriophage needed be relative to the bacteria in order for the "infection" to happen. Click <a href="../pages/chemotaxis.html">here</a> to reset the animation.</div>
             </header>
         </body>
 
