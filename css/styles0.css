@@ -49,6 +49,7 @@ h2 {
 .navbar a:hover {
     background-color: mediumblue;
     border-color: black;
+    overflow: auto;
 }
 
 /* Style the current/active link */
@@ -58,8 +59,8 @@ h2 {
 }
 
 #bannerimg {
-    width: 1920px;
-    height: 270px;
+    width: 1276px;
+    height: 300px;
     border-color: black;
 }
 
@@ -100,4 +101,9 @@ iframe {
     border-color: royalblue;
     border-style: solid;
     background-color: black;
+}
+
+article {
+  position: relative;
+  padding: 12px;
 }
