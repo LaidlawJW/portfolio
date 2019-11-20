@@ -10,8 +10,8 @@ float speedY[] = new float[quantity];
 
 void setup() {// Initializes positions
   size(800, 600);
+  stroke(64, 255, 255, 100);
   strokeWeight(13);
-  fill(202, 255, 255, 50);
   frameRate(60);
 
   for (int i=1; i<quantity; i++) {// Initial positions are random
@@ -23,7 +23,7 @@ void setup() {// Initializes positions
   posY[0] = 0;
 }
 
-void draw() { //
+void draw() { //Adjusts speed and location of particles based on relative distances
   background(0, 128);
   speedX[0] = speedX[0] * .5+(mouseX - posX[0]) * 1.91;
   speedY[0] = speedY[0] * .5+(mouseY - posY[0]) * 1.91;
@@ -52,14 +52,12 @@ void draw() { //
   }
 }
 
-void mousePressed() {// Scrambles particle locations
+void mousePressed() { // Resets particle locations
   for (int i = 0; i < quantity; i++) {
     posX[i] = random(0, width);
     posY[i] = random(0, width);
   }
 }
-
-
 
 class NormalParticle implements Particle { //The standard cyan particles
 
@@ -70,6 +68,8 @@ class NormalParticle implements Particle { //The standard cyan particles
   }
 
   void show() {
+    fill(202, 255, 255, 50);
+    circle(10, 10, 10);
   }
 }
 
