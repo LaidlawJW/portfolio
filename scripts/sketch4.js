@@ -11,11 +11,11 @@ var totalElapse;
 function setup() {
     //your code here
     createCanvas(window.innerWidth, window.innerHeight);
-    frameRate(50)
+    frameRate(60)
     noStroke();
     fill(255);
-    newAngle = -0.01;
-    newVeloc = random(2, 5);
+    newAngle = -0.1;
+    newVeloc = random(2, 10);
     newTarget = random(0, 360);
     uniRed = random(0, 255);
     uniGreen = random(0, 255);
@@ -25,11 +25,11 @@ function setup() {
 
     part = [];
 
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 10; i++) {
         part.push(new NormalParticle());
     }
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 1; i++) {
         part.push(new OddballParticle());
     }
 }
@@ -46,18 +46,18 @@ function draw() {
         part[i].show();
     }
 
-    if (timer < 100) {
-        for (let i = 0; i < 20; i++) {
+    if (timer < 300) {
+        for (let i = 0; i < 10; i++) {
             part.push(new NormalParticle());
         }
     } else {
-        newAngle = -0.01;
-        newVeloc = random(2, 5);
+        newAngle = -0.1;
+        newVeloc = random(2, 10);
         newTarget = random(0, 360);
         uniRed = random(0, 255);
         uniGreen = random(0, 255);
         uniBlue = random(0, 255);
-        if (timer > 300) {
+        if (timer > 100) {
             timer = 0;
             totalElapse++;
             if (totalElapse > 3) {
@@ -67,7 +67,7 @@ function draw() {
     }
 
     for (let i = 0; i < part.length; i++) {
-        if (dist(part[i].getX(), part[i].getY(), width / 2, height / 2) > width || part[i].getElapse() > 500) {
+        if (dist(part[i].getX(), part[i].getY(), width / 2, height / 2) > width || part[i].getElapse() > 300) {
             part.splice(i, 1);
         }
     }
@@ -89,12 +89,12 @@ class NormalParticle {
         if (totalElapse == 0) {
             this.angle = ((random([0, 1, ]) == 0) ? random(180, 240) : random(0, 60)) + newTarget;
         } else if (totalElapse == 1) {
-            this.angle = random(0, 50) + newTarget;
+            this.angle = random(0, 360) + newTarget;
             this.speed = 6;
         } else if (totalElapse == 2) {
             this.angle = random(0, 360) + newTarget;
         } else if (totalElapse == 3) {
-            this.angle = random(0, 50) + newTarget;
+            this.angle = random(0, 360) + newTarget;
         } else if (totalElapse == 4) {
             this.angle = newTarget;
             this.x = random(0, width);

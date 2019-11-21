@@ -13,7 +13,7 @@ void setup() {
   noStroke();
   fill(255);
   newAngle = -0.01;
-  newVeloc = random(2, 5);
+  newVeloc = random(2, 10);
   newTarget = random(0, 360);
   uniRed = random(0, 255);
   uniGreen = random(0, 255);
@@ -21,11 +21,11 @@ void setup() {
   timer = 0;
   part = new ArrayList<Particle>();
   
-  for (int i = 0; i < 20; i++) {
+  for (int i = 0; i < 1; i++) {
     part.add(new OddballParticle());
   }
   
-  for (int i = 0; i < 50; i++) {
+  for (int i = 0; i < 10; i++) {
     part.add(new NormalParticle());
   }
 }
@@ -45,7 +45,7 @@ void draw() {
   
   if (timer < 100) {
 
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 10; i++) {
       part.add(new NormalParticle());
     }
 
@@ -66,7 +66,7 @@ void draw() {
     }
   }
   for (int i = 0; i < part.size(); i++) {
-    if (dist(part.get(i).getX(), part.get(i).getY(), width/2, height/2) > width || part.get(i).getElapse() > 500) {
+    if (dist(part.get(i).getX(), part.get(i).getY(), width/2, height/2) > width || part.get(i).getElapse() > 300) {
       part.remove(i);
     }
   }
@@ -88,7 +88,7 @@ class NormalParticle implements Particle {
     x = width/2;
     y = height/2;
     speed = 2.5;
-    angle = random(0, 50) + newTarget;
+    angle = random(0, 360) + newTarget;
     tic = 0;
     a = newAngle;
     v = newVeloc;
