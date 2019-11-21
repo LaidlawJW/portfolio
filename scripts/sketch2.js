@@ -5,7 +5,7 @@ var dice = new Array();
 var rand;
 
 function setup() {
-    createCanvas(310, 310);
+    createCanvas(window.innerWidth, window.innerHeight);
     background(40, 148, 3);
     noLoop();
     textSize(20);

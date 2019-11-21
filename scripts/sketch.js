@@ -20,7 +20,7 @@ var lightFade = true;
 
 function setup() {
     smooth();
-    createCanvas(900, 500);
+    createCanvas(window.innerWidth, window.innerHeight);
     background(0);
     strokeWeight(2);
 }

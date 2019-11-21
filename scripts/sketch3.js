@@ -13,7 +13,7 @@ function preLoad() {
 }
 
 function setup() {
-    createCanvas(200, 200);
+    createCanvas(window.innerWidth, window.innerHeight);
 
     speed = 0;
 

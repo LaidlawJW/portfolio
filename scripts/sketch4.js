@@ -1,112 +1,157 @@
-var quantity = 1500;
-
-var posX = new Array(quantity);
-var posY = new Array(quantity);
-var speedX = new Array(quantity).fill(0);
-var speedY = new Array(quantity).fill(0);
-
-var r, g, b;
-
-var nP, obP, jmP; //Array increments for each particle type
+var part;
+var newAngle;
+var newVeloc;
+var newTarget;
+var uniRed;
+var uniGreen;
+var uniBlue;
+var timer;
+var totalElapse;
 
 function setup() {
-    createCanvas(windowWidth, windowHeight);
-    stroke(64, 255, 255, 100);
-    strokeWeight(13);
-    fill(202, 255, 255, 50);
-    frameRate(60);
+    //your code here
+    createCanvas(window.innerWidth, window.innerHeight);
+    frameRate(50)
+    noStroke();
+    fill(255);
+    newAngle = -0.01;
+    newVeloc = random(2, 5);
+    newTarget = random(0, 360);
+    uniRed = random(0, 255);
+    uniGreen = random(0, 255);
+    uniBlue = random(0, 255);
+    timer = 0;
+    totalElapse = 0;
 
-    for (var i = 1; i < quantity; i++) { //Initally random positions
-        posX[i] = random(0, width);
-        posY[i] = random(0, height);
+    part = [];
+
+    for (let i = 0; i < 20; i++) {
+        part.push(new NormalParticle());
     }
 
-    posX[0] = 0;
-    posY[0] = 0;
+    for (let i = 0; i < 5; i++) {
+        part.push(new OddballParticle());
+    }
 }
 
-function draw() { //Adjusts speed and location of particles based on relative distances
-    background(0, 128);
+function draw() {
+    timer++;
+    background(0);
 
-    speedX[0] = speedX[0] * .5 + (mouseX - posX[0]) * 1.91;
-    speedY[0] = speedY[0] * .5 + (mouseY - posY[0]) * 1.91;
+    for (let i = 0; i < part.length; i++) {
+        part[i].move();
+    }
 
-    posX[0] += speedX[0];
-    posY[0] += speedY[0];
+    for (let i = 0; i < part.length; i++) {
+        part[i].show();
+    }
 
-    for (var i = 1; i < quantity; i++) {
-        var change = 1024 / (sq(posX[0] - posX[i]) + sq(posY[0] - posY[i]));
-
-        speedX[i] = speedX[i] * 0.95 + (speedX[0] - speedX[i]) * change;
-        speedY[i] = speedY[i] * 0.95 + (speedY[0] - speedY[i]) * change;
-
-        posX[i] += speedX[i];
-        posY[i] += speedY[i];
-
-        if ((posX[i] < 0 && speedX[i] < 0) || (posX[i] > width && speedX[i] > 0)) {
-            speedX[i] = -speedX[i];
+    if (timer < 100) {
+        for (let i = 0; i < 20; i++) {
+            part.push(new NormalParticle());
         }
-
-        if ((posY[i] < 0 && speedY[i] < 0) || (posY[i] > height && speedY[i] > 0)) {
-            speedY[i] = -speedY[i];
+    } else {
+        newAngle = -0.01;
+        newVeloc = random(2, 5);
+        newTarget = random(0, 360);
+        uniRed = random(0, 255);
+        uniGreen = random(0, 255);
+        uniBlue = random(0, 255);
+        if (timer > 300) {
+            timer = 0;
+            totalElapse++;
+            if (totalElapse > 3) {
+                totalElapse = 0;
+            }
         }
+    }
 
-        point(posX[i], posY[i]);
+    for (let i = 0; i < part.length; i++) {
+        if (dist(part[i].getX(), part[i].getY(), width / 2, height / 2) > width || part[i].getElapse() > 500) {
+            part.splice(i, 1);
+        }
     }
 }
 
-function mousePressed() { // Resets particle locations
-    for (var i = 1; i < quantity; i++) {
-        posX[i] = random(0, width);
-        posY[i] = random(0, height);
-    }
-}
+class NormalParticle {
+    //your code here
+    constructor() {
+        this.x = width / 2;
+        this.y = height / 2;
+        this.speed = 2.5;
+        this.time = 0;
+        this.a = newAngle;
+        this.v = newVeloc;
+        this.r = uniRed + random(-20, 20);
+        this.g = uniGreen + random(-20, 20);
+        this.b = uniBlue + random(-20, 20);
 
-function colorChange() { //For jumbo particles
-    r = random(255);
-    g = random(255);
-    b = random(255);
-}
-
-//--------------------All particle types have the same movements as defined in draw()-------
-
-class NormalParticle { //The standard cyan particles
-
-    constructor(x, y) {
-        this.x = posX[i];
-        this.y = posX[i];
-    }
-
-
-    show() {
-        fill(202, 255, 255, 50);
-        circle(this.x, this.y, 10);
-    }
-}
-
-class OddballParticle extends NormalParticle { //Will be squares instead of circles
-
-    constructor(x, y) {
-        this.x = posX[i];
-        this.y = posX[i];
+        if (totalElapse == 0) {
+            this.angle = ((random([0, 1, ]) == 0) ? random(180, 240) : random(0, 60)) + newTarget;
+        } else if (totalElapse == 1) {
+            this.angle = random(0, 50) + newTarget;
+            this.speed = 6;
+        } else if (totalElapse == 2) {
+            this.angle = random(0, 360) + newTarget;
+        } else if (totalElapse == 3) {
+            this.angle = random(0, 50) + newTarget;
+        } else if (totalElapse == 4) {
+            this.angle = newTarget;
+            this.x = random(0, width);
+            this.y = random(0, height);
+            this.time = 300;
+        }
     }
 
-    show() {
-        fill(202, 255, 255, 50);
-        rect(this.x, this.y, 10, 10);
-    }
-}
-
-class JumboParticle extends OddballParticle { //Inherits Oddball, will be sqaures that flash random colors
-
-    constructor(x, y) {
-        this.x = posX[i];
-        this.y = posX[i];
+    move() {
+        this.time++;
+        this.x += this.speed * cos(radians(this.angle));
+        this.y += this.speed * sin(radians(this.angle));
+        this.angle -= ((this.a * this.time) + this.v);
     }
 
     show() {
-        colorChange();
-        fill(r, g, b, 50);
-        rect(this.x, this.y, 10, 10);
+        fill(this.r, this.g, this.b);
+        ellipse(this.x, this.y, 5, 5);
+    }
+
+    getX() {
+        return this.x;
+    }
+
+    getY() {
+        return this.y;
+    }
+
+    getElapse() {
+        return this.time;
+    }
+}
+
+class OddballParticle extends NormalParticle {
+    constructor() {
+        super();
+    }
+
+    move() { //Random colors
+        super.r = uniRed + random(-20, 20);
+        super.g = uniGreen + random(-20, 20);
+        super.b = uniBlue + random(-20, 20);
+    }
+
+    show() {
+        ellipse((width / 2), (height / 2), 15, 15);
+    }
+
+    getX() {
+        return (width / 2);
+    }
+
+    getY() {
+        return (height / 2);
+    }
+
+    getElapse() {
+        return 0;
     }
 }

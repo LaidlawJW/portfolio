@@ -1,104 +1,187 @@
-int quantity=1500;
-int r, g, b;
+ArrayList<Particle> part;
+float newAngle;
+float newVeloc;
+float newTarget;
+float uniRed;
+float uniGreen;
+float uniBlue;
+int timer;
 
-float posX[] = new float[quantity];
-float posY[] = new float[quantity];
-
-float speedX[] = new float[quantity];
-float speedY[] = new float[quantity];
-
-
-void setup() {// Initializes positions
-  size(800, 600);
-  stroke(64, 255, 255, 100);
-  strokeWeight(13);
-  frameRate(60);
-
-  for (int i=1; i<quantity; i++) {// Initial positions are random
-    posX[i]=random(0, width);
-    posY[i]=random(0, height);
+void setup() {
+  //your code here
+  size(1000, 1000);
+  noStroke();
+  fill(255);
+  newAngle = -0.01;
+  newVeloc = random(2, 5);
+  newTarget = random(0, 360);
+  uniRed = random(0, 255);
+  uniGreen = random(0, 255);
+  uniBlue = random(0, 255);
+  timer = 0;
+  part = new ArrayList<Particle>();
+  
+  for (int i = 0; i < 20; i++) {
+    part.add(new OddballParticle());
   }
-
-  posX[0] = 0;
-  posY[0] = 0;
+  
+  for (int i = 0; i < 50; i++) {
+    part.add(new NormalParticle());
+  }
 }
 
-void draw() { //Adjusts speed and location of particles based on relative distances
-  background(0, 128);
-  speedX[0] = speedX[0] * .5+(mouseX - posX[0]) * 1.91;
-  speedY[0] = speedY[0] * .5+(mouseY - posY[0]) * 1.91;
+void draw() {
+  //your code here
+  timer ++;
+  background(0);
+  
+  for (int i = 0; i < part.size(); i++) {
+    part.get(i).move();
+  }
+  
+  for (int i = 0; i < part.size(); i++) {
+    part.get(i).show();
+  }
+  
+  if (timer < 100) {
 
-  posX[0] += speedX[0];
-  posY[0] += speedY[0];
-
-  for (int i = 0; i < quantity; i++) {
-    float change=1024 / (sq(posX[0] - posX[i]) + sq(posY[0] - posY[i]));
-
-    speedX[i] = speedX[i] * 0.95 + (speedX[0] - speedX[i]) * change;
-    speedY[i] = speedY[i] * 0.95 + (speedY[0] - speedY[i]) * change;
-
-    posX[i] += speedX[i];
-    posY[i] += speedY[i];
-
-    if ((posX[i] < 0 && speedX[i] < 0) || (posX[i] > width && speedX[i] > 0)) {
-      speedX[i] = -speedX[i];
+    for (int i = 0; i < 20; i++) {
+      part.add(new NormalParticle());
     }
 
-    if ((posY[i] < 0 && speedY[i] < 0) || (posY[i] > width && speedY[i] > 0)) {
-      speedY[i] = -speedY[i];
+    if (timer > 100 && (int)random(0, 20) == 4) {
+      part.add(new JumboParticle());
     }
+  } else {
+    
+    newAngle = -0.01;
+    newVeloc = random(2, 5);
+    newTarget = random(0, 360);
+    uniRed = random(0, 255);
+    uniGreen = random(0, 255);
+    uniBlue = random(0, 255);
 
-    point(posX[i], posY[i]);
+    if (timer > 300) {
+      timer = 0;
+    }
+  }
+  for (int i = 0; i < part.size(); i++) {
+    if (dist(part.get(i).getX(), part.get(i).getY(), width/2, height/2) > width || part.get(i).getElapse() > 500) {
+      part.remove(i);
+    }
   }
 }
 
-void mousePressed() { // Resets particle locations
-  for (int i = 0; i < quantity; i++) {
-    posX[i] = random(0, width);
-    posY[i] = random(0, width);
-  }
-}
-
-class NormalParticle implements Particle { //The standard cyan particles
-
+class NormalParticle implements Particle {
+  //your code here
+  float x;
+  float y;
+  float speed;
+  float angle;
+  int tic;
+  float a;
+  float v;
+  float r;
+  float g; 
+  float b;
   NormalParticle() {
+    x = width/2;
+    y = height/2;
+    speed = 2.5;
+    angle = random(0, 50) + newTarget;
+    tic = 0;
+    a = newAngle;
+    v = newVeloc;
+    r = uniRed + random(-20, 20);
+    g = uniGreen + random(-20, 20);
+    b = uniBlue + random(-20, 20);
   }
 
   void move() {
+    tic ++;
+    x += speed*cos(radians(angle));
+    y += speed*sin(radians(angle));
+    angle -= ((a * tic) + v);
   }
 
   void show() {
-    fill(202, 255, 255, 50);
-    circle(10, 10, 10);
+    fill(r, g, b);
+    ellipse(x, y, 10, 10);
+  }
+
+  float getX() {
+    return x;
+  }
+
+  float getY() {
+    return y;
+  }
+
+  int getElapse() {
+    return tic;
   }
 }
 
-interface Particle { //methods that all particle types use
-  public void move();
-  public void show();
+interface Particle {
+  //your code here
+  void move();
+  void show();
+  float getX();
+  float getY();
+  int getElapse();
 }
 
-class OddballParticle implements Particle { //uses the interface, will be sqaures instead of circles
+class JumboParticle extends NormalParticle implements Particle //uses an interface
+{
+  JumboParticle() {
+  }
 
+  void move() {
+    super.move();
+  }
+
+  void show() {
+    fill(r, g, b);
+    ellipse(x, y, 30, 30);
+  }
+
+  float getX() {
+    return x;
+  }
+
+  float getY() {
+    return y;
+  }
+
+  int getElapse() {
+    return tic;
+  }
+}
+
+class OddballParticle extends NormalParticle implements Particle //uses the interface
+{
   OddballParticle() {
   }
 
   void move() {
+    r = uniRed + random(-20, 20);
+    g = uniGreen + random(-20, 20);
+    b = uniBlue + random(-20, 20);
   }
 
   void show() {
-  }
-}
-
-class JumboParticle extends OddballParticle {// inherits oddball, will be sqaures that flash colors
-
-
-  JumboParticle() {
+    ellipse((width/2), (height/2), 15, 15);
   }
 
-  void move() { //Moves them into the correct positions
+  float getX() {
+    return x;
   }
 
-  void show() {
+  float getY() {
+    return y;
+  }
+
+  int getElapse() {
+    return 0;
   }
 }

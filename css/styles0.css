@@ -59,8 +59,8 @@ h2 {
 }
 
 #bannerimg {
-    width: 1276px;
-    height: 300px;
+    width: auto;
+    height: auto;
     border-color: black;
 }
 
@@ -100,7 +100,23 @@ iframe {
     border-radius: 30px;
     border-color: royalblue;
     border-style: solid;
-    background-color: black;
+    background-color: dimgray;
+}
+
+.box2 {
+    position: relative;
+    width: 50%;
+    margin: 1rem;
+    padding: 2rem;
+    color: white;
+    font-size: .9rem;
+    font-weight: bold;
+    text-align: left;
+    border-width: 10px;
+    border-radius: 30px;
+    border-color: royalblue;
+    border-style: solid;
+    background-color: dimgray;
 }
 
 article {
