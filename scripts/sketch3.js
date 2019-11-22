@@ -13,7 +13,7 @@ function preLoad() {
 }
 
 function setup() {
-    createCanvas(window.innerWidth, window.innerHeight);
+    createCanvas(windowWidth, windowHeight);
 
     speed = 0;
 
@@ -24,6 +24,10 @@ function setup() {
     phages.push(new Phage(random(-width, 2 * width), random(height, 2 * height), .015 + (3 * speed)));
 
     speed++;
+}
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
 }
 
 function draw() {

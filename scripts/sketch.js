@@ -20,9 +20,13 @@ var lightFade = true;
 
 function setup() {
     smooth();
-    createCanvas(window.innerWidth, window.innerHeight);
+    createCanvas(windowWidth, windowHeight);
     background(0);
     strokeWeight(2);
+}
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
