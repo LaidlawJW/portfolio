@@ -20,15 +20,11 @@ var lightFade = true;
 
 function setup() {
     smooth();
-    var canvas = createCanvas(900, 500);
-    canvas.parent('sketch-div');
+    createCanvas(windowWidth, windowHeight);
     background(0);
     strokeWeight(2);
 }
 
-function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
-}
 
 function draw() {
     //lightning color 

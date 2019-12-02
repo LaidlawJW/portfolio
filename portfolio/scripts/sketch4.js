@@ -10,8 +10,7 @@ var totalElapse;
 
 function setup() {
     //your code here
-    var canvas = createCanvas(windowWidth, windowHeight);
-    canvas.parent('sketch-div');
+    createCanvas(windowWidth, windowHeight);
     frameRate(60)
     noStroke();
     fill(255);
@@ -33,10 +32,6 @@ function setup() {
     for (let i = 0; i < 1; i++) {
         part.push(new OddballParticle());
     }
-}
-
-function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
 }
 
 function draw() {

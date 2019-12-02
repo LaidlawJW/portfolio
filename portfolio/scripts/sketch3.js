@@ -13,8 +13,7 @@ function preLoad() {
 }
 
 function setup() {
-    var canvas = createCanvas(windowWidth, windowHeight);
-    canvas.parent('sketch-div');
+    createCanvas(windowWidth, windowHeight);
 
     speed = 0;
 
@@ -25,10 +24,6 @@ function setup() {
     phages.push(new Phage(random(-width, 2 * width), random(height, 2 * height), .015 + (3 * speed)));
 
     speed++;
-}
-
-function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
 }
 
 function draw() {

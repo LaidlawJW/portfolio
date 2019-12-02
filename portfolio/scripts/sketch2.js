@@ -5,8 +5,7 @@ var dice = new Array();
 var rand;
 
 function setup() {
-    var canvas = createCanvas(windowWidth, windowHeight);
-    canvas.parent('sketch-div');
+    createCanvas(windowWidth, windowHeight);
     background(40, 148, 3);
     noLoop();
     textSize(20);
@@ -18,10 +17,6 @@ function setup() {
             dice[i * 4 + j] = new Die(30 + 65 * j, 30 + 65 * i);
         }
     }
-}
-
-function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
