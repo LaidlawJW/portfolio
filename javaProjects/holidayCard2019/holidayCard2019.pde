@@ -103,8 +103,8 @@ void drawHH() {
   fill(#FCF0EB);
   text("Happy Holidays!", tex+1000, 455);
   fill(0);
-  santa.resize(100, 100);
-  image(santa, tex+900, 355);
+  santa.resize(150, 100);
+  image(santa, tex+800, 355);
   if (tex>0) {
     tex=1000;
   } else {
