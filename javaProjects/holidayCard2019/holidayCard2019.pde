@@ -9,7 +9,6 @@ int moonCount=0;
 void setup() {
   santa=loadImage("santa.png");
   size(1000, 500);
-  //img=loadImage(
   for (int i=0; i<sf1.length; i++) {
     sf1[i]=new snowFlake();
   }
@@ -17,11 +16,11 @@ void setup() {
 
 void draw() {
   background(#67E8E7);
-  
+
   if (mousePressed) {
     background(0, 0, 70);// Night mode
   }
-  
+
   for (int i=0; i<sf1.length; i++) {
     sf1[i].move();
     sf1[i].show();
@@ -98,16 +97,16 @@ void lights() {
   }
 }
 
-void drawHH() {
+void drawHH() {// Needs to loop over
   textSize(30);
   fill(#FCF0EB);
   text("Happy Holidays!", tex+1000, 455);
   fill(0);
-  santa.resize(150, 100);
+  santa.resize(175, 110);
   image(santa, tex+800, 355);
   if (tex>0) {
     tex=1000;
   } else {
-    tex-=.9;
+    tex-=1;
   }
 }
