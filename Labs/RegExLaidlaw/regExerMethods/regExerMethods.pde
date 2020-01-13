@@ -20,10 +20,9 @@ int countVowels(String s) {
   return vowels.length-1;
 }
 
-int countSyllables(String s) {
-  String[] syllables = s.split("[e]");
-  String[] vowels = s.split("[aeiouyAEIOUY]");
-  return vowels.length - syllables.length+2;
+int countSyllables(String str){
+  String[] exceptions = str.split("[e][\\s]");
+  return countVowels(str)-exceptions.length;
 }
 
 int countSentences(String s){
