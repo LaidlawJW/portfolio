@@ -1,21 +1,22 @@
-public class Word {
+public class Word{
   String word;
-  int pos;
-  Word(String word) {
+  int ocr;
+  
+  Word(String word){
     this.word = word;
-    this.pos = 1;
+    this.ocr = 1;
   }
-
-  Word(String word, int ocr) {
+  
+  Word(String word, int ocr){
     this.word = word;
-    this.pos = ocr;
+    this.ocr = ocr;
   }
-
-  void increment() {
-    pos++;
+  
+  void increment(){
+    ocr++;
   }
-
-  String toString() {
-    return (word + "   " + pos);
+  
+  String toString(){
+    return (word + "   " + ocr);
   }
 }
