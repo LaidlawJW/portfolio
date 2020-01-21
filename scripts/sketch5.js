@@ -11,7 +11,7 @@ function preLoad() {
     santa = loadImage("../images/santa.png");
 }
 
-void setup() {
+function setup() {
     santa = loadImage("santa.png");
     createCanvas(1000, 500);
     for (var i = 0; i < sf1.length; i++) {
@@ -19,7 +19,7 @@ void setup() {
     }
 }
 
-void draw() {
+function draw() {
     background(#67E8E7);
   
   if (mousePressed) {
@@ -36,7 +36,7 @@ void draw() {
     lights();
 }
 
-void grow() {
+function grow() {
     fill(255, 255, 255);
     rect(0, this.height - 95, this.width, this.grow); // Over the whole scene
     if (this.grow < -90) {
@@ -58,7 +58,7 @@ void grow() {
     }
 }
 
-void objects() {
+function objects() {
     //ground
     noStroke();
     fill(255, 255, 255);
@@ -86,7 +86,7 @@ void objects() {
     rect(60, 300, 20, 30);
 }
 
-void lights() {
+function lights() {
     if (mousePressed) {
         moon();
         fill(#EFF033);
@@ -102,7 +102,7 @@ void lights() {
     }
 }
 
-void drawHH() {
+function drawHH() {
     textSize(30);
     fill(#FCF0EB);
     text("Happy Holidays!", this.tex + 1000, 455);
@@ -116,7 +116,7 @@ void drawHH() {
     }
 }
 
-void moon() { // Not yet finished
+function moon() { // Not yet finished
     if (moonCount == 0) { // Full moon
         fill(255);
         ellipse(100, 100, 50, 50); //Default moon
