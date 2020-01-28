@@ -1,12 +1,14 @@
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Collections;
-import static java.lang.System.*;
 
-public class Runner {
-  public static void main (String[] args) throws IOException {
-    //add test cases
+void setup(){
+  String [] str=loadStrings("persons.txt");
+  List<Person>myList=new ArrayList<Person>();
+  
+  for(String s: str){
+    Scanner scan=new Scanner(s);
+    myList.add(new Person(scan.nextInt(), scan.nextInt(), scan.nextInt(), scan.next()));
   }
+  Collections.sort(myList);
 }
