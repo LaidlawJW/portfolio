@@ -16,6 +16,10 @@ public class Word implements Comparable<Word> {
     if (this.word.length()<other.word.length()) {
       return -1;
     }
+
+    if (this.word.length()==other.word.length()) {
+      return -1;
+    }
     return this.word.compareTo(other.word);
   }
 
