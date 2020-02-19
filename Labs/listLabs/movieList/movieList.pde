@@ -130,7 +130,7 @@ void setup() {
   text("Movie review data:", 50, 100);
   textSize(20);
   text("Total loaded reviews: 6903", 50, 150);
-  text("Reviews with a: ", 50, 200);
+  text("Reviews with: ", 50, 200);
   textSize(16);
   text(nums, 50, 250);
   textSize(20);
