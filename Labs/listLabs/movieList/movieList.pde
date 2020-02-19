@@ -1,41 +1,28 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.ListIterator;
-import java.util.List;
-import java.util.Collections;
-import java.util.Scanner;
+//This tab also contains the runner in order to make size() work.
+import java.util.*;
 
-public class MovieList {
+class MovieList {
+  private ArrayList<Movie> movieList = new ArrayList<Movie>();
+  private int reviewCount;
 
-  private int count;
-  private String [] movies;
-  private String [] keyWords;
-  private int [] reviewNums;// \d for regEx nums
-
-  List movieList;
-
-  public MovieList() {
-    movieList = new ArrayList<Movie>();
+  public MovieList(ArrayList<Movie> m) {
+    movieList = m;
   }
 
-  public void loadMovies() {
-    movies=loadStrings("reviews.txt");
-    
-    for (String s : movies) {
-      Scanner scan = new Scanner(s);
-      movieList.add(new Movie(scan.nextInt(), scan.nextLine()));
-      scan.close();
-    }
-    count = movieList.size();
+  public int loadMovies() {
+    return reviewCount;
   }
 
   public int getCount() {
-    return this.count;
+    return reviewCount;
   }
 
   public double getAverageScore() {
-    double average=0.0;
-    return average;
+    double average = 0.0;
+    for (int i=0; i<movieList.size(); i++) {
+      average+=movieList.get(i).getRating();
+    }
+    return (double)(average/movieList.size());
   }
 
   public void SortMoviesByCount() {
@@ -43,32 +30,109 @@ public class MovieList {
   }
 
   public String overallComment() {
-    
-    String result="";
+    int currentRating = 0;
+    String comment = "";
+    for (int i=0; i<movieList.size(); i++) {
+      currentRating=movieList.get(i).getRating();
+      if (currentRating==4) {
+        comment = "This movie is superb.";
+      }
 
-    if (getAverageScore()>=3.5) {
-      result="This movie is superb.";
-    }
+      if (currentRating==3) {
+        comment = "This movie is decent.";
+      }
 
-    if (getAverageScore()>=2.5 && getAverageScore()<3.5) {
-      result="This movie is just ok.";
-    }
+      if (currentRating==2) {
+        comment = "This movie is average.";
+      }
 
-    if (getAverageScore()>=1.5 && getAverageScore()<2.5) {
-      result="This movie is average.";
-    }
+      if (currentRating==1) {
+        comment = "This movie is pretty bad.";
+      }
 
-    if (getAverageScore()>=0 && getAverageScore()<1.5) {
-      result="This movie is awful.";
+      if (currentRating==0) {
+        comment = "This movie isn't worth your time.";
+      }
     }
+    return comment;
+  }
+
+  public String addedNums() {
+    int currentRating=0;
+    String result = "";
+
+    int zeros = 0;
+    int ones = 0;
+    int twos = 0;
+    int threes = 0;
+    int fours = 0;
+
+    for (int i=0; i<movieList.size(); i++) {
+      currentRating=movieList.get(i).getRating();
+      if (currentRating==4) {
+        fours++;
+      }
+
+      if (currentRating==3) {
+        threes++;
+      }
+
+      if (currentRating==2) {
+        twos++;
+      }
+
+      if (currentRating==1) {
+        ones++;
+      }
+
+      if (currentRating==0) {
+        zeros++;
+      }
+    }
+    result = "Zeros: "+zeros+" \nOnes: "+ones+" \nTwos: "+twos+" \nThrees: "+threes+" \nFours: "+fours;
     return result;
   }
 
   public String toString() {
-    ListIterator<String>it=movieList.listIterator();
+    String finish="";
+    Iterator it=movieList.iterator();
     while (it.hasNext()) {
-      return movieList.toString();
+      finish+=it.next();
     }
-    return movieList.toString();
+    return finish;
   }
+}
+//--------------------------------------------------------------------
+void setup() {
+  size(800, 600);
+  String[] reviews = loadStrings("reviews.txt");
+  ArrayList<Movie> movies = new ArrayList<Movie>();
+  for (String i : reviews) {
+    Scanner scan=new Scanner(i);
+    movies.add(new Movie(scan.nextInt(), scan.nextLine()));
+  }
+
+  int reviewCount = movies.size();
+
+  MovieList mov = new MovieList(movies);
+  mov.SortMoviesByCount();
+  String viewpoint = mov.overallComment();
+  String nums = mov.addedNums();
+  println(viewpoint);
+  println(nums);
+  println(mov);
+
+  String average="Average review score across all "+reviewCount+" reviews: "+mov.getAverageScore();
+  println(average);
+
+  background(0);
+  textSize(32);
+  text("Movie review data:", 50, 100);
+  textSize(20);
+  text("Total loaded reviews: 6903", 50, 150);
+  text("Reviews with a: ", 50, 200);
+  textSize(16);
+  text(nums, 50, 250);
+  textSize(20);
+  text(average, 50, 400);
 }

@@ -1,27 +1,31 @@
-public class Movie implements Comparable<MovieList> {
+class Movie implements Comparable<Movie> {
   private int rating;
   private String review;
 
-  public Movie(int rat, String rev) {
+  Movie(int rat, String rev) {
     rating = rat;
     review = rev;
   }
-  
-  public int compareTo() {    
-    
-  }
 
   public int getRating() {
-    return this.rating;
+    return rating;
   }
 
   public String getReview() {
-    return this.review;
+    return review;
+  }
+
+  public int compareTo(Movie other) {
+    if (rating>other.getRating()) {
+      return 1;
+    } else if (rating<other.getRating())
+      return -1;
+    else {
+      return 0;
+    }
   }
 
   public String toString() {
-    String print="";
-    print=("Rating: "+rating+"\n"+"Reason: "+review+"\n");
-    return print;
+    return "Review: "+review+"\n"+"Rating: "+rating+"\n"+"\n";
   }
 }
