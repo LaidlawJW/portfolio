@@ -4,27 +4,28 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import static java.lang.System.*;
 
-public class UniquesDupes
-{
-  public Set<String> getUniques(String input) {
-    String [] items = "dupes.txt".split(" ");
+public static class UniquesDupes {
+  public static Set<String> getUniques(String input) {
+    String [] items = input.split(" ");
     Set<String> uniques = new TreeSet<String>();
-
-    Iterator it=uniques.iterator();
-    while (it.hasNext()) {
+    
+    for (String s : items) {
+      uniques.add(s);
     }
 
     return uniques;
   }
 
-  public Set<String> getDupes(String input) {
-    String [] items = "dupes.txt".split(" ");
-    Set<String> dupes = new TreeSet<String>(Arrays.asList(items));
+  public static Set<String> getDupes(String input) {
+    String [] items = input.split(" ");
+    Set<String> uniques = new TreeSet<String>();
+    Set<String> dupes = new TreeSet<String>();
 
-    Iterator it=dupes.iterator();
-    while (it.hasNext()) {
+    for (String s : items) {
+      if (uniques.add(s)==false) {
+        dupes.add(s);
+      }
     }
-
     return dupes;
   }
 }
