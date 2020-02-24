@@ -4,5 +4,5 @@ import java.util.Scanner;
 import static java.lang.System.*;
 
 void setup() {
+  
 }
-//more test cases

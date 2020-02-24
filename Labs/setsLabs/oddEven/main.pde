@@ -10,9 +10,14 @@ public class OddEvenSets {
   private Set<Integer> evens;
 
   public OddEvenSets() {
+    odds = new TreeSet<Integer>();
+    evens = new TreeSet<Integer>();
   }
 
   public OddEvenSets(String line) {
+    String [] items = line.split(" ");
+    
+    
   }
 
   public String toString() {
