@@ -15,12 +15,21 @@ public class OddEvenSets {
   }
 
   public OddEvenSets(String line) {
+    this();
     String [] items = line.split(" ");
-    
-    
+
+    for (String s : items) {
+      int num=parseInt(s);
+      
+      if (num % 2 == 0) {
+        evens.add(num);
+      } else {
+        odds.add(num);
+      }
+    }
   }
 
   public String toString() {
-    return "Odds : " + odds + "\nEvens : " + evens + "\n\n";
+    return "Odds: " + odds + "\nEvens: " + evens + "\n\n";
   }
 }
