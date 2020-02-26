@@ -4,32 +4,39 @@ import java.util.Arrays;
 import java.util.Scanner;
 import static java.lang.System.*;
 
-public class OddEvenSets {
+public static class OddEvenSets {
 
-  private Set<Integer> odds;
-  private Set<Integer> evens;
-
-  public OddEvenSets() {
-    odds = new TreeSet<Integer>();
-    evens = new TreeSet<Integer>();
-  }
-
-  public OddEvenSets(String line) {
-    this();
+  public static Set <Integer> getEvens(String line) {
     String [] items = line.split(" ");
+    Set<Integer> evens = new TreeSet<Integer>();
+    Set<Integer> odds = new TreeSet<Integer>();
 
     for (String s : items) {
       int num=parseInt(s);
-      
+
       if (num % 2 == 0) {
         evens.add(num);
       } else {
         odds.add(num);
       }
     }
+    return evens;
   }
 
-  public String toString() {
-    return "Odds: " + odds + "\nEvens: " + evens + "\n\n";
+  public static Set <Integer> getOdds(String line) {
+    String [] items = line.split(" ");
+    Set<Integer> evens = new TreeSet<Integer>();
+    Set<Integer> odds = new TreeSet<Integer>();
+
+    for (String s : items) {
+      int num=parseInt(s);
+
+      if (num % 2 == 0) {
+        evens.add(num);
+      } else {
+        odds.add(num);
+      }
+    }
+    return odds;
   }
 }

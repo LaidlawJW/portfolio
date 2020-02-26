@@ -5,8 +5,7 @@ import java.util.TreeSet;
 import java.util.Scanner;
 import static java.lang.System.*;
 
-public class Relatives
-{
+public class Relatives {
   private Map<String, Set<String>> map;
 
   public Relatives() {
@@ -24,11 +23,9 @@ public class Relatives
     map.get(k).add(v);
   }
 
-  public String getRelatives(String person)
-  {
+  public String getRelatives(String person) {
     return ""+map.get(person);
   }
-
 
   public String toString() {
     String output="";
