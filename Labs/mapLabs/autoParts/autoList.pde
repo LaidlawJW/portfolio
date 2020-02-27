@@ -13,35 +13,28 @@ public class PartList {
 
   public PartList(String fileName) {
     //loadStrings() or:
-    try
-    {
-      Scanner file = new Scanner(new File("lab08d.dat"));
+    try {
+      Scanner file = new Scanner(new File("parts.txt"));
       //add code here to read from the file 
       //and add Parts to the map
+
+      catch( IOException e)  //Most specific exceptions must be listed 1st{
+        out.println(e);
     }
 
-    catch( IOException e)  //Most specific exceptions must be listed 1st{
+    catch( RuntimeException e) {
       out.println(e);
+    }
+
+    catch( Exception e) {
+      out.println(e);
+    }
+    finally {
+      //no code needed here
+    }
+
+    public String toString() {
+      String output="";
+      return output;
+    }
   }
-
-  catch( RuntimeException e) {
-    out.println(e);
-  }
-
-  catch( Exception e) {
-    out.println(e);
-  }
-  finally {
-    //no code needed here
-  }
-
-
-  public String toString() {
-    String output="";
-
-
-
-
-    return output;
-  }
-}

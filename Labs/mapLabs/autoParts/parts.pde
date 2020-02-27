@@ -7,12 +7,7 @@ public class Part implements Comparable<Part> {
   }
 
   //have to have compareTo if implements Comparable
-  public int compareTo( Part other ) {
-
-
-
-
-
+  public int compareTo(Part other) {
     return 0;
   }
 
