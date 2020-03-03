@@ -28,7 +28,6 @@ public class Relatives {
   }
 
   public String toString() {
-    String output="";
-    return output;
+    return map.toString().replaceAll("\\,", "\n");
   }
 }

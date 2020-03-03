@@ -22,6 +22,14 @@ public class Part implements Comparable<Part> {
       return 1;
     } else if (this.model.compareTo(rhs.model)<0) {
       return -1;
+    } else if (this.year>(rhs.year)) {
+      return 1;
+    } else if (this.year<(rhs.year)) {
+      return -1;
+    } else if (this.theRest.compareTo(rhs.theRest>0)) {
+      return 1;
+    } else if (this.theRest.compareTo(rhs.theRest<0)) {
+      return -1;
     }
     return 0;
   }

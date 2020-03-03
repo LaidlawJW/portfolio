@@ -29,7 +29,7 @@ public class SpanishToEnglish {
     String output ="";
 
     while (scan.hasNext()) {
-      output += pairs.get(scan.next(" "));
+      output += pairs.get(scan.next())+" ";
     }
     return output;
   }
