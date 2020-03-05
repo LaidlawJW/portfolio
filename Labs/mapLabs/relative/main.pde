@@ -28,6 +28,10 @@ public class Relatives {
   }
 
   public String toString() {
-    return map.toString().replaceAll("\\,", "\n");
+    String output="";
+    for(String key: map.keySet()){
+      output += key+" is related to "+map.get(key)+ ". ";
+    }
+    return output;
   }
 }

@@ -25,7 +25,7 @@ ordenador computer
 con with
 antes before
 vacio empty
-tú you
+tu you
 hambre hunger
 contaminado corrupt
 a to
@@ -35,12 +35,12 @@ cafe brown
 su your
 es is
 quiero want
-vamos let's go
+vamos go
 mi my
 barco ship
 nosotros we
 casa house
-yo I
-borrar to delete
+yo i
+borrar delete
 necesita necessary
 despues after
