@@ -9,15 +9,15 @@ public class Acronyms {
 
   private Map<String, String> acro;
 
-  public Acronyms() {
+  public Acronyms() { //Sets up the needed data structures
     acro = new TreeMap<String, String>();
     String[] codes = loadStrings("acro.txt");
     ArrayList<String> test = new ArrayList<String>();
     for (String s : codes) {
       String[] expel = s.split("\\W");
-      for (String y : expel) {
-        if (!y.equals("")&&!y.equals(null)&&!y.equals(" ")) {
-          test.add(y);
+      for (String x : expel) {
+        if (!x.equals("")&&!x.equals(null)&&!x.equals(" ")) {
+          test.add(x);
         }
       }
     }
@@ -36,62 +36,34 @@ public class Acronyms {
     }
   }
 
-  public void putEntry(String entry) {
-    String out = "";
-    String[] splice = entry.split("\\W");
-    ArrayList<String> test = new ArrayList<String>();
-    for (String s : splice) {
-      if (!s.equals("")&&!s.equals(null)&&!s.equals(" ")) {
-        test.add(s);
-      }
-    }
-    for (int i = 1; i<test.size(); i++) {
-      out += test.get(i)+" ";
-    }
-    acro.put(test.get(0), out.substring(0, out.length()-1));
+  //Delimites by dashes
+  public void putEntry(String entry) { 
+    String[] str = entry.split(" - ");
+
+    if (acro.get(str[0]) == null)
+      acro.put(str[0].replaceAll(" ", ""), str[1].replaceAll(" ", ""));
   }
 
+  //Finds punctuation and sees how many words make up an acronym
   public String decode(String sent) {
     Scanner chop = new Scanner(sent);
-    String output = "";
+    String output ="";
 
     while (chop.hasNext()) {
-      boolean check = false;
-      char select = 45;
-      String n = chop.next(); 
+      String word=chop.next();
+      String check=word.replaceAll("\\p{Punct}", "");
 
-      if (n.contains(".")||n.contains("?")||n.contains("!")) {
-        check = true;
-        select = n.charAt(n.length()-1);
-      }
-
-      String[] add = n.split("\\W");
-      String keys = "";
-
-      for (String s : add) {
-        if (!s.equals(null)&&!s.equals("")&&!s.equals(" "))
-          keys += s;
-      }
-
-      if (acro.containsKey(keys)) { 
-        if (check) { 
-          output += acro.get(keys)+"."+" ";
-        } else {
-          output += acro.get(keys)+" ";
-        }
-      } else {
-        if (check) {
-          output += keys+"."+" ";
-        } else {
-          output += keys+" ";
-        }
-      }
+      if (acro.get(check)==null)
+        output+=word + " ";
+      else if (word.compareTo(check)!=0)
+        output+=acro.get(check) + ". ";
+      else
+        output+=acro.get(word) + " ";
     }
-    chop.close();
     return output;
   }
 
-  public String toString() {
+  public String toString() { 
     return acro.toString();
   }
 }
