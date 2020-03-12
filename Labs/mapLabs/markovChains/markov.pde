@@ -8,8 +8,8 @@ class MarkovChain implements Markov {
   Map<String, ArrayList<String>> theMap;
 
   public MarkovChain() {
-    wordList=new ArrayList<String>();
-    theMap=new TreeMap<String, ArrayList<String>>();
+    wordList = new ArrayList<String>();
+    theMap = new TreeMap<String, ArrayList<String>>();
   }
 
   //look through the str of words
@@ -38,28 +38,28 @@ class MarkovChain implements Markov {
   // call getRandomIndex(str) and store it in randomIndex2
   // then build your newString by adding str_ myMap.get(randomIndex) and randomIndex2
   String generateText(String str) {
-    String newString="";
-    int randomIndex=0;
-    int randomIndex2=0;
+    String newString = "";
+    int randomIndex = 0;
+    int randomIndex2 = 0;
 
     if (theMap.containsKey(str)) {
-      randomIndex=getRandomIndex(str);
-      randomIndex2=getRandomIndex(str);
+      randomIndex = getRandomIndex(str);
+      randomIndex2 = getRandomIndex(str);
       newString = str + randomIndex + randomIndex2;
     }
     return newString;
   }
 
   int getRandomIndex(String s) {
-    int randomIndex=(int)(Math.random()*theMap.get(s).size());
+    int randomIndex = (int)(Math.random()*theMap.get(s).size());
     return randomIndex;
   }
 
   void printMap() {
-    println(theMap);
+    println(theMap.toString().replaceAll("],", "]\n"));
   }
 
   public String toString() {
-    return ""+wordList;
+    return wordList.toString();
   }
 }
