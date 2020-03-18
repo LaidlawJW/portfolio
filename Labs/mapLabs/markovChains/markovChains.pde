@@ -1,6 +1,6 @@
 void setup() {
   MarkovChain mc = new MarkovChain();
-  String [] str = loadStrings("fish.txt");
+  String [] str = loadStrings("poem.txt");
   String allText = join(str, " ");
   String [] cleanText = allText.replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+");//removes punct before splitting
   mc.trainMap(cleanText);
@@ -8,7 +8,6 @@ void setup() {
   for (String s : cleanText) {
     mc.generateText(s);
     println(mc.generateText(s));
-    //println(mc.generateText2(s));
   }
   mc.printMap();
 }

@@ -1,0 +1,153 @@
+one fish fish
+fish two new
+two fish fish
+fish new red
+red and fish
+fish blue black
+blue fish fish
+fish blue red
+black fish fish
+fish red two
+blue fish some
+fish black there
+old fish and
+fish there blue
+new fish fish
+fish this there
+this one one
+one has has
+has a a
+a lot little
+little car car
+star this this
+this one one
+one has has
+has a a
+a yellow little
+little star car
+car say say
+say what what
+what a a
+a yellow little
+lot of of
+of fish fish
+fish new old
+there to to
+are new very
+yes some some
+some are are
+are glad sad
+red fish fish
+and bad some
+some are are
+are sad very
+blue fish some
+some are are
+are very fat
+old fish and
+and bad bad
+some are are
+are fat blue
+new fish some
+some are are
+are very everywhere
+sad and and
+and bad some
+some are are
+are thin everywhere
+glad and and
+and some bad
+some are are
+are thin very
+very very bad
+very very bad
+bad why i
+why are are
+are glad everywhere
+they sad sad
+sad and and
+and glad some
+glad and and
+and some bad
+bad i why
+i do do
+do not not
+not know know
+know go go
+go ask ask
+ask your your
+your dad dad
+dad some some
+some are are
+are red they
+thin and and
+and some some
+some are are
+are they old
+fat the the
+the fat fat
+fat one one
+one has has
+has a a
+a little little
+yellow hat hat
+hat from from
+from here here
+there to to
+to here here
+here to to
+from here here
+here to to
+to there there
+there funny funny
+funny things things
+things are are
+are red blue
+
+{a=[little, little, lot, yellow]
+ and=[some, some, some, some, glad, bad, some]
+ are=[yes, red, blue, old, new, sad, glad, very, they, thin, fat, everywhere]
+ ask=[your]
+ bad=[why, i]
+ black=[fish]
+ blue=[fish, fish, some]
+ car=[say]
+ dad=[some]
+ do=[not]
+ fat=[the, one]
+ fish=[two, red, blue, black, blue, old, new, this, there]
+ from=[there, here]
+ funny=[things]
+ glad=[and, and]
+ go=[ask]
+ has=[a, a, a]
+ hat=[from]
+ here=[from, to]
+ i=[do]
+ know=[go]
+ little=[star, car]
+ lot=[of]
+ new=[fish, some]
+ not=[know]
+ of=[fish]
+ old=[fish, and]
+ one=[fish, has, has, has]
+ red=[fish, and]
+ sad=[and, and]
+ say=[what]
+ some=[are, are, are, are, are, are, are, are, are]
+ star=[this]
+ the=[fat]
+ there=[are, to, funny]
+ they=[sad]
+ thin=[and]
+ things=[are]
+ this=[one, one]
+ to=[here, there]
+ two=[fish]
+ very=[very, bad]
+ what=[a]
+ why=[are]
+ yellow=[hat]
+ yes=[some]
+ your=[dad]}

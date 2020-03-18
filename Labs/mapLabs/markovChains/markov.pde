@@ -2,6 +2,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.TreeMap;
 
 class MarkovChain implements Markov {
   List <String> wordList;
@@ -9,7 +10,7 @@ class MarkovChain implements Markov {
 
   public MarkovChain() {
     wordList = new ArrayList<String>();
-    theMap = new HashMap<String, ArrayList<String>>();
+    theMap = new TreeMap<String, ArrayList<String>>();
   }
 
   //look through the str of words
@@ -45,7 +46,8 @@ class MarkovChain implements Markov {
     if (theMap.containsKey(str)) {
       randomIndex = getRandomIndex(str);
       randomIndex2 = getRandomIndex(str);
-      newString = str + " " + theMap.get(randomIndex) + " " + theMap.get(randomIndex2);
+      newString += str + " " + theMap.get(str).get(randomIndex) + " ";
+      newString += theMap.get(str).get(randomIndex2);
     }
     return newString;
   }
