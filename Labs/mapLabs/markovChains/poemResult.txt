@@ -1,151 +1,91 @@
-searching for for
-for memories memories
-memories throughout throughout
-throughout our our
-our journeys journeys
-journeys that yet
-that make make
+searching for 
+for memories 
+memories throughout 
+throughout our 
+our journeys 
+journeys and advice
+that all 
 make us life
-life a a
-a way way
-little more more
+life a 
+a little 
+little more 
 more like feathery
-feathery reaching reaching
-reaching out out
-out to to
-to keep keep
-others throughout throughout
-throughout our our
-our journeys journeys
-journeys that and
-and feeling feeling
-feeling more low
-more like like
-like brothers brothers
-brothers knowing knowing
-knowing that that
-that all all
-all things things
-things come come
-come to to
-to make see
-an entire entire
-end throughout throughout
-throughout our our
-our journeys journeys
-journeys yet throughout
-yet finding finding
-finding new new
-new ways ways
-ways to to
-to see see
-make life a
-a way little
-friend a a
-a way way
-helping hand hand
-hand when when
-when youre youre
-youre feeling feeling
-feeling more more
-low compelling compelling
-compelling enough enough
-enough to to
-to make see
-make life a
-us glow feel
-glow throughout throughout
-throughout our our
-our journeys journeys
-journeys that that
-throughout our our
-our journeys journeys
-journeys and throughout
-advice hastily hastily
-hastily but but
-but honestly only
-honestly given given
-given finds finds
-finds a a
-a little way
-way to to
-to keep others
-keep us us
-us driven glow
-driven an an
+feathery reaching 
+reaching out 
+out to 
+to keep 
+others throughout 
+throughout our 
+our journeys 
+journeys yet 
+and feeling 
+feeling low 
+more like feathery
+like brothers 
+brothers knowing 
+knowing that 
+that make 
+all things 
+things come 
+come to 
+to keep 
 an end entire
-entire world world
-world to to
-to others keep
-see but but
-but only honestly
-only choosing choosing
-choosing what what
-what makes makes
-makes us us
-us glow driven
-feel free free
-free throughout throughout
-throughout our our
-our journeys journeys
-journeys yet advice
-
-{a=[little, friend, helping, way]
- advice=[hastily]
- all=[things]
- an=[end, entire]
- and=[feeling]
- brothers=[knowing]
- but=[honestly, only]
- choosing=[what]
- come=[to]
- compelling=[enough]
- driven=[an]
- end=[throughout]
- enough=[to]
- entire=[world]
- feathery=[reaching]
- feel=[free]
- feeling=[more, low]
- finding=[new]
- finds=[a]
- for=[memories]
- free=[throughout]
- friend=[a]
- given=[finds]
- glow=[throughout]
- hand=[when]
- hastily=[but]
- helping=[hand]
- honestly=[given]
- journeys=[that, and, yet, throughout, advice]
- keep=[us]
- knowing=[that]
- life=[a]
- like=[brothers]
- little=[more]
- low=[compelling]
- make=[life, a, us]
- makes=[us]
- memories=[throughout]
- more=[feathery, like]
- new=[ways]
- only=[choosing]
- others=[throughout]
- our=[journeys, journeys, journeys, journeys, journeys, journeys]
- out=[to]
- reaching=[out]
- searching=[for]
- see=[but]
- that=[make, all]
- things=[come]
- throughout=[our, our, our, our, our, our]
- to=[others, an, make, make, keep, see]
- us=[glow, driven, feel]
- way=[to]
- ways=[to]
- what=[makes]
- when=[youre]
- world=[to]
- yet=[finding]
- youre=[feeling]}
+end throughout 
+throughout our 
+our journeys 
+journeys that and
+yet finding 
+finding new 
+new ways 
+ways to 
+to see 
+make a 
+a helping 
+friend a 
+a way little
+helping hand 
+hand when 
+when youre 
+youre feeling 
+feeling low 
+low compelling 
+compelling enough 
+enough to 
+to see 
+make us life
+us feel 
+glow throughout 
+throughout our 
+our journeys 
+journeys and yet
+throughout our 
+our journeys 
+journeys advice 
+advice hastily 
+hastily but 
+but only 
+honestly given 
+given finds 
+finds a 
+a friend way
+way to 
+to make others
+keep us 
+us glow feel
+driven an 
+an entire 
+entire world 
+world to 
+to see make
+see but 
+but honestly 
+only choosing 
+choosing what 
+what makes 
+makes us 
+us feel 
+feel free 
+free throughout 
+throughout our 
+our journeys 
+journeys and yet

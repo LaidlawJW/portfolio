@@ -13,13 +13,7 @@ class MarkovChain implements Markov {
     theMap = new TreeMap<String, ArrayList<String>>();
   }
 
-  //look through the str of words
-  //store the first word in a variable called currentWord
-  //store the second word in a variable called nextWord
-  //add to map by
-  //checking to see of currentWord is in theMap
-  //if it is not, put it in the map and instantiate your ArrayList
-  //if it is get(currentWord).add(nextWord);
+  //forms the mapping of the text's words
   void trainMap(String [] str) {
     for (int i = 0; i<str.length-1; i++) {
       String currentWord = str[i];
@@ -32,31 +26,35 @@ class MarkovChain implements Markov {
     }
   }
 
-  // initialize a new String called newString
-  // create two random index variables called randomIndex and randomIndex2
-  // if (map.containsKey(str)) {
-  // call getRandomIndex(str) and store it in randomIndex
-  // call getRandomIndex(str) and store it in randomIndex2
-  // then build your newString by adding str_ myMap.get(randomIndex) and randomIndex2
   String generateText(String str) {
-    String newString = "";
+    String newString1 = "";
+    String newString2 = "";
+    String result = "";
     int randomIndex = 0;
     int randomIndex2 = 0;
 
-    if (theMap.containsKey(str)) {
+    if (theMap.containsKey(str)) {// assigns random indexes to the arrayLists in the map
       randomIndex = getRandomIndex(str);
       randomIndex2 = getRandomIndex(str);
-      newString += str + " " + theMap.get(str).get(randomIndex) + " ";
-      newString += theMap.get(str).get(randomIndex2);
+      newString1 = str + " " + theMap.get(str).get(randomIndex) + " ";
+      newString2 = theMap.get(str).get(randomIndex2);
+      result = newString1 + newString2;
+
+      //Removes duplicate words
+      if (theMap.get(str).get(randomIndex).equals(theMap.get(str).get(randomIndex2))) {
+        return newString1;
+      }
     }
-    return newString;
+    return result;
   }
 
+  //Gets a random number from zero to the arrayList size number
   int getRandomIndex(String s) {
     int randomI = (int)(Math.random()*theMap.get(s).size());
     return randomI;
   }
 
+  //Prints the map while creating a new line for every entry
   void printMap() {
     println(theMap.toString().replaceAll("],", "]\n"));
   }
