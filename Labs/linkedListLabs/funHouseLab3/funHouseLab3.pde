@@ -12,10 +12,10 @@ public class ListFunHouseTwo {
     } else {
       ListNode front = theList;
       ListNode back = theList;
-      
+
       theList = theList.getNext();
-      
-      while(theList != front) {
+
+      while (theList != front) {
         back = theList;
         theList = theList.getNext();
       }
