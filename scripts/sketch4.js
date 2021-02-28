@@ -25,11 +25,11 @@ function setup() {
 
     part = [];
 
-    for (let i = 0; i < 10; i++) {
+    for (var i = 0; i < 10; i++) {
         part.push(new NormalParticle());
     }
 
-    for (let i = 0; i < 1; i++) {
+    for (var i = 0; i < 1; i++) {
         part.push(new OddballParticle());
     }
 }
@@ -38,16 +38,16 @@ function draw() {
     timer++;
     background(0);
 
-    for (let i = 0; i < part.length; i++) {
+    for (var i = 0; i < part.length; i++) {
         part[i].move();
     }
 
-    for (let i = 0; i < part.length; i++) {
+    for (var i = 0; i < part.length; i++) {
         part[i].show();
     }
 
     if (timer < 300) {
-        for (let i = 0; i < 10; i++) {
+        for (var i = 0; i < 10; i++) {
             part.push(new NormalParticle());
         }
     } else {
@@ -66,7 +66,7 @@ function draw() {
         }
     }
 
-    for (let i = 0; i < part.length; i++) {
+    for (var i = 0; i < part.length; i++) {
         if (dist(part[i].getX(), part[i].getY(), width / 2, height / 2) > width || part[i].getElapse() > 300) {
             part.splice(i, 1);
         }
